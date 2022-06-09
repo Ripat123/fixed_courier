@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.sbitbd.couriermerchant">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        android:required="true" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera.flash" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_foreground"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_foreground"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CourierMerchant.NoActionBar"
+        android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".tracking.tracking"
+            android:exported="false" />
+        <activity
+            android:name=".admin_list.admin"
+            android:exported="false" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.canhub.cropper.CropImageActivity"
+            android:theme="@style/Theme.CourierMerchant" />
+        <activity
+            android:name=".balance_details.balance_details"
+            android:exported="true"
+            android:theme="@style/Theme.CourierMerchant.NoActionBar" />
+        <activity
+            android:name=".website.web_view"
+            android:exported="true" />
+        <activity
+            android:name=".success_view.success"
+            android:exported="true"
+            android:theme="@style/Theme.CourierMerchant.NoActionBar" />
+        <activity
+            android:name=".view_form.view_form"
+            android:theme="@style/Theme.CourierMerchant.NoActionBar" />
+        <activity
+            android:name=".details.details_one"
+            android:theme="@style/Theme.CourierMerchant.NoActionBar" />
+        <activity
+            android:name=".profile.profile"
+            android:theme="@style/Theme.CourierMerchant.NoActionBar" />
+        <activity
+            android:name=".search.search"
+            android:theme="@style/Theme.CourierMerchant.NoActionBar" />
+        <activity
+            android:name=".flash.flash_screen"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.CourierMerchant.NoActionBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".parcel.parcel"
+            android:theme="@style/Theme.CourierMerchant.NoActionBar" />
+        <activity
+            android:name=".Main_dashboard"
+            android:label="@string/title_activity_main_dashboard"
+            android:theme="@style/Theme.CourierMerchant.NoActionBar.NoActionBar" />
+        <activity android:name=".register.register" />
+        <activity android:name=".login.login" />
+        <activity android:name=".card_details.details_card" />
+        <activity
+            android:name=".terms.terms"
+            android:theme="@style/Theme.CourierMerchant.NoActionBar" />
+        <activity
+            android:name=".suggest.suggest"
+            android:theme="@style/Theme.CourierMerchant.NoActionBar" />
+        <activity
+            android:name=".service.service_charge"
+            android:theme="@style/Theme.CourierMerchant.NoActionBar" />
+        <activity
+            android:name=".about.about_us"
+            android:theme="@style/Theme.CourierMerchant.NoActionBar" />
+        <activity android:name=".MainActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
