@@ -13,6 +13,8 @@ import android.widget.*;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.color.DynamicColors;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.sbitbd.couriermerchant.Adapter.sheba_adapter;
 import com.sbitbd.couriermerchant.Config.config;
 import com.sbitbd.couriermerchant.about.about_us;
@@ -128,10 +130,12 @@ public class MainActivity extends AppCompatActivity {
             Button trackbtn = bottomSheetDialog.findViewById(R.id.track_btn);
             trackbtn.setOnClickListener(view -> {
                 String tid = id.getText().toString().trim();
-                Intent intent = new Intent(MainActivity.this, tracking.class);
-                intent.putExtra("id",tid);
-                startActivity(intent);
-                bottomSheetDialog.cancel();
+                if (!tid.equals("")) {
+                    Intent intent = new Intent(MainActivity.this, tracking.class);
+                    intent.putExtra("id", tid);
+                    startActivity(intent);
+                    bottomSheetDialog.cancel();
+                }else Snackbar.make(view,"Empty ID!", BaseTransientBottomBar.LENGTH_SHORT).show();
             });
             bottomSheetDialog.show();
         }catch (Exception e){
