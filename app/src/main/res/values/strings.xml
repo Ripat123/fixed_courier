@@ -184,4 +184,7 @@
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCYqlowQvpqAG2D1Sjb0QOH9cfrJICTifQ</string>
     <string name="my_loc">Current Location</string>
     <string name="map_loc">Map Location</string>
+    <string name="track_not">Tracking Info not found.</string>
+    <string name="track_order">Track Order</string>
+    <string name="track">Track</string>
 </resources>

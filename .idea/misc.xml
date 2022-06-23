@@ -85,13 +85,14 @@
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/drawable/gradient6.xml" value="0.1615" />
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/drawable/gradient7.xml" value="0.1615" />
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/drawable/gradient_card.xml" value="0.206" />
+        <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/drawable/ic_round_remove_24.xml" value="0.1255" />
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/drawable/side_nav_bar.xml" value="0.206" />
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/drawable/tab_indicator.xml" value="0.206" />
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/font/volkhov_bold.xml" value="0.14397394136807817" />
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/layout/activity_details_card.xml" value="0.1" />
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/layout/activity_details_one.xml" value="0.2" />
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/layout/activity_login.xml" value="0.1" />
-        <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/layout/activity_main.xml" value="0.15" />
+        <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/layout/activity_main_dashboard.xml" value="0.18" />
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/layout/activity_parcel.xml" value="0.1911231884057971" />
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/layout/activity_register.xml" value="0.16" />
@@ -101,6 +102,7 @@
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/layout/activity_view_form.xml" value="0.1" />
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/layout/admin_item.xml" value="0.1911231884057971" />
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/layout/app_bar_main.xml" value="0.18" />
+        <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/layout/bottom_track.xml" value="0.22" />
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/layout/content_main.xml" value="0.1" />
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/layout/dashboard_card.xml" value="0.25" />
         <entry key="..\:/Users/Rifat Rabbi/Documents/couriermerchant/app/src/main/res/layout/details_card.xml" value="0.1911231884057971" />

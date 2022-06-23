@@ -295,7 +295,7 @@ public class details_one extends AppCompatActivity {
                     status.setText("DELIVERED");
                     reject.setEnabled(false);
                     edit_btn.setEnabled(false);
-                    //track_btn.setEnabled(false);
+                    track_btn.setEnabled(false);
                     break;
                 case "8":
                     track_checkimg_1.setVisibility(View.GONE);

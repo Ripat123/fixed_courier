@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -39,6 +40,7 @@ public class tracking extends AppCompatActivity {
     private trackModel trackmodel = new trackModel();
     private MaterialCardView back;
     private Marker marker;
+    private TextView trackt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class tracking extends AppCompatActivity {
         try {
             trackingID = getIntent().getStringExtra("id");
             back = binding.backId;
+            trackt = binding.trackt;
             back.setOnClickListener(v -> finish());
 
             SupportMapFragment mapFragment =
@@ -77,23 +80,26 @@ public class tracking extends AppCompatActivity {
 
     private void getLocation(GoogleMap googleMap) {
         try {
-            databaseReference = FirebaseDatabase.getInstance().getReference().child("order").child("ID00001");
+            databaseReference = FirebaseDatabase.getInstance().getReference().child("order").child(trackingID);
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    trackmodel = snapshot.getValue(trackModel.class);
-                    LatLng location = new LatLng(Double.parseDouble(trackmodel.getLat()), Double.parseDouble(trackmodel.getLon()));
-                    if (marker == null) {
-                        marker = googleMap.addMarker(new MarkerOptions().position(location).title("Rider Location")
-                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.logo_icon))
-                                .anchor(0.5f, 0.5f).flat(false));
-                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 16));
+                    if (snapshot.getValue(trackModel.class) != null) {
+                        trackmodel = snapshot.getValue(trackModel.class);
+                        LatLng location = new LatLng(Double.parseDouble(trackmodel.getLat()), Double.parseDouble(trackmodel.getLon()));
+                        if (marker == null) {
+                            marker = googleMap.addMarker(new MarkerOptions().position(location).title("Rider Location")
+                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.logo_icon))
+                                    .anchor(0.5f, 0.5f).flat(false));
+                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 16));
+                        } else {
+                            MerkerAnimation.animateMarkerToGB(marker, location, new LatLngInterpolator.Spherical());
+                            googleMap.animateCamera(CameraUpdateFactory.newLatLng(location));
+                        }
+                    }else {
+                        Toast.makeText(tracking.this, "Tracking Info not found.", Toast.LENGTH_SHORT).show();
+                        trackt.setText(R.string.track_not);
                     }
-                    else {
-                        MerkerAnimation.animateMarkerToGB(marker, location, new LatLngInterpolator.Spherical());
-                        googleMap.animateCamera(CameraUpdateFactory.newLatLng(location));
-                    }
-
                 }
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {

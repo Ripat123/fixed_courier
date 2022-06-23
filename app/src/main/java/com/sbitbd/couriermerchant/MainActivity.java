@@ -2,18 +2,15 @@ package com.sbitbd.couriermerchant;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.*;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.transition.AutoTransition;
-import android.transition.TransitionManager;
+import android.transition.*;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.*;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.color.DynamicColors;
 import com.sbitbd.couriermerchant.Adapter.sheba_adapter;
@@ -24,13 +21,14 @@ import com.sbitbd.couriermerchant.register.register;
 import com.sbitbd.couriermerchant.service.service_charge;
 import com.sbitbd.couriermerchant.suggest.suggest;
 import com.sbitbd.couriermerchant.terms.terms;
+import com.sbitbd.couriermerchant.tracking.tracking;
 
 public class MainActivity extends AppCompatActivity {
 
     ImageView imageView, arrow;
     MaterialCardView cardView;
     ConstraintLayout constraintLayout;
-    private Button about, service, terms, suggestions, login, reg;
+    private Button about, service, terms, suggestions, login, reg,track_btn;
     private RecyclerView sheba_rec, why_rec, blog_rec;
     private sheba_adapter sheba_adapter, why_adapter, blog_adapter;
     private main_controller main_controller = new main_controller();
@@ -60,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             blog_rec = findViewById(R.id.blog_rec);
             login = findViewById(R.id.login_btn);
             reg = findViewById(R.id.reg_btn);
+            track_btn = findViewById(R.id.track_btn);
         } catch (Exception e) {
         }
     }
@@ -67,63 +66,34 @@ public class MainActivity extends AppCompatActivity {
     private void config() {
         try {
             //menu settings
-            arrow.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (constraintLayout.getVisibility() == View.GONE) {
-                        TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
-                        constraintLayout.setVisibility(View.VISIBLE);
-                        arrow.setImageResource(R.drawable.ic_round_keyboard_arrow_up_24);
-                    } else {
-                        TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
-                        constraintLayout.setVisibility(View.GONE);
-                        arrow.setImageResource(R.drawable.ic_round_keyboard_arrow_down_24);
-                    }
+            arrow.setOnClickListener(v -> {
+                if (constraintLayout.getVisibility() == View.GONE) {
+                    TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
+                    constraintLayout.setVisibility(View.VISIBLE);
+                    arrow.setImageResource(R.drawable.ic_round_keyboard_arrow_up_24);
+                } else {
+                    TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
+                    constraintLayout.setVisibility(View.GONE);
+                    arrow.setImageResource(R.drawable.ic_round_keyboard_arrow_down_24);
                 }
             });
-            about.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(MainActivity.this, about_us.class));
-                }
+            about.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, about_us.class)));
+            track_btn.setOnClickListener(view -> {
+                loadTrackingID();
             });
-
-            service.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(MainActivity.this, service_charge.class));
+            service.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, service_charge.class)));
+            terms.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, terms.class)));
+            suggestions.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, suggest.class)));
+            login.setOnClickListener(v -> {
+                if (configer.checkUser(MainActivity.this)){
+                    startActivity(new Intent(MainActivity.this, Main_dashboard.class));
                 }
-            });
-            terms.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(MainActivity.this, terms.class));
+                else {
+                    startActivity(new Intent(MainActivity.this, login.class));
                 }
+                finish();
             });
-            suggestions.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(MainActivity.this, suggest.class));
-                }
-            });
-            login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (configer.checkUser(MainActivity.this)){
-                        startActivity(new Intent(MainActivity.this, Main_dashboard.class));
-                    }
-                    else {
-                        startActivity(new Intent(MainActivity.this, login.class));
-                    }
-                    finish();
-                }
-            });
-            reg.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(MainActivity.this, register.class));
-                }
-            });
+            reg.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, register.class)));
 
             GridLayoutManager manager = new GridLayoutManager(MainActivity.this, 1);
             sheba_rec.setLayoutManager(manager);
@@ -146,6 +116,25 @@ public class MainActivity extends AppCompatActivity {
             main_controller.inithome(MainActivity.this, blog_adapter, blog_rec,
                     "SELECT description,title,image,id FROM `blogs`");
         } catch (Exception e) {
+        }
+    }
+
+    private void loadTrackingID() {
+        try {
+            final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(MainActivity.this);
+            bottomSheetDialog.setDismissWithAnimation(true);
+            bottomSheetDialog.setContentView(R.layout.bottom_track);
+            EditText id = bottomSheetDialog.findViewById(R.id.track);
+            Button trackbtn = bottomSheetDialog.findViewById(R.id.track_btn);
+            trackbtn.setOnClickListener(view -> {
+                String tid = id.getText().toString().trim();
+                Intent intent = new Intent(MainActivity.this, tracking.class);
+                intent.putExtra("id",tid);
+                startActivity(intent);
+                bottomSheetDialog.cancel();
+            });
+            bottomSheetDialog.show();
+        }catch (Exception e){
         }
     }
 

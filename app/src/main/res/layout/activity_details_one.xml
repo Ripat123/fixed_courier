@@ -197,7 +197,6 @@
                                 android:text="@string/letsTrack"
                                 android:textStyle="bold"
                                 app:cornerRadius="10dp"
-                                android:visibility="gone"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="@+id/edit_btn"
                                 app:layout_constraintHorizontal_bias="0.5"
