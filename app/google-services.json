@@ -8,12 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:350783058567:android:fdc38a39d21cfc61b43e22",
+        "mobilesdk_app_id": "1:350783058567:android:5f7c0d740d1e9740b43e22",
         "android_client_info": {
-          "package_name": "com.sbitbd.couriermerchant"
+          "package_name": "com.sbitbd.fixedcourier"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "350783058567-ia8fm3snv5o4s6agn6jccsb8olvmcrpq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sbitbd.fixedcourier",
+            "certificate_hash": "eb804270e4c857ea7c88b486b2bd517d25914cc4"
+          }
+        },
         {
           "client_id": "350783058567-g3ae1rdvcaqripou6fang2u6vtggng7n.apps.googleusercontent.com",
           "client_type": 3
