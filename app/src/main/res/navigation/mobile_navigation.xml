@@ -7,57 +7,57 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.sbitbd.couriermerchant.ui.home.HomeFragment"
+        android:name="com.sbitbd.fixedcourier.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.sbitbd.couriermerchant.ui.gallery.GalleryFragment"
+        android:name="com.sbitbd.fixedcourier.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.sbitbd.couriermerchant.ui.slideshow.SlideshowFragment"
+        android:name="com.sbitbd.fixedcourier.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/nav_area"
-        android:name="com.sbitbd.couriermerchant.ui.coverage_area.coverage_area"
+        android:name="com.sbitbd.fixedcourier.ui.coverage_area.coverage_area"
         android:label="@string/coverage_area"
         tools:layout="@layout/coverage_area_fragment" />
 
     <fragment
         android:id="@+id/nav_pricing"
-        android:name="com.sbitbd.couriermerchant.ui.pricing.pricing"
+        android:name="com.sbitbd.fixedcourier.ui.pricing.pricing"
         android:label="@string/pricing"
         tools:layout="@layout/pricing_fragment" />
 
     <fragment
         android:id="@+id/nav_return"
-        android:name="com.sbitbd.couriermerchant.ui.return_order.return_order"
+        android:name="com.sbitbd.fixedcourier.ui.return_order.return_order"
         android:label="@string/return_order"
         tools:layout="@layout/fragment_return_order" />
     <fragment
         android:id="@+id/nav_all"
-        android:name="com.sbitbd.couriermerchant.ui.all_consignments"
+        android:name="com.sbitbd.fixedcourier.ui.all_consignments"
         android:label="@string/all"
         tools:layout="@layout/all_consignments_fragment" />
     <fragment
         android:id="@+id/nav_payments"
-        android:name="com.sbitbd.couriermerchant.ui.view_payments.payments"
+        android:name="com.sbitbd.fixedcourier.ui.view_payments.payments"
         android:label="@string/view_payments"
         tools:layout="@layout/fragment_payments" />
     <fragment
         android:id="@+id/nav_settings"
-        android:name="com.sbitbd.couriermerchant.ui.settings.settings"
+        android:name="com.sbitbd.fixedcourier.ui.settings.settings"
         android:label="@string/settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/nav_support"
-        android:name="com.sbitbd.couriermerchant.ui.support.support"
+        android:name="com.sbitbd.fixedcourier.ui.support.support"
         android:label="@string/support"
         tools:layout="@layout/fragment_support" />
 </navigation>

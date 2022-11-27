@@ -9,11 +9,11 @@ android {
     buildToolsVersion '33.0.0 rc3'
 
     defaultConfig {
-        applicationId "com.sbitbd.couriermerchant"
+        applicationId "com.sbitbd.fixedcourier"
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 16
-        versionName "3.3.1"
+        versionCode 17
+        versionName "3.3.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
